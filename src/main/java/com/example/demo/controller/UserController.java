@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import com.example.demo.model.Card;
+import com.example.demo.model.User;
 import com.example.demo.service.CardService;
+import com.example.demo.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,34 +20,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
-public class CardController {
+public class UserController {
 
     @Autowired
-    private CardService cardService;
+    private UserService userService;
 
-    @GetMapping("/cards")
-    private ResponseEntity<List<Card>> getAllCards() {
-        return ResponseEntity.ok().body(cardService.findAll());
+    @GetMapping("/users")
+    private ResponseEntity<List<User>> getAllCards() {
+        return ResponseEntity.ok().body(userService.findAll());
     }
 
-    @PostMapping("/cards")
-    private ResponseEntity<Card> addCard(@RequestBody Card card) {
-        return ResponseEntity.ok().body(cardService.save(card));
+    @PostMapping("/users")
+    private ResponseEntity<User> addCard(@RequestBody User user) {
+        return ResponseEntity.ok().body(userService.save(user));
     }
 
-    @GetMapping("/cards/{id}")
-    private ResponseEntity<Card> findOne(@PathVariable Long id) {
-        return ResponseEntity.ok().body(cardService.findOne(id));
+    @GetMapping("/users/{id}")
+    private ResponseEntity<User> findOne(@PathVariable Long id) {
+        return ResponseEntity.ok().body(userService.findOne(id));
     }
 
-    @PutMapping("/cards")
-    private ResponseEntity<Card> findOne(@RequestBody Card card) {
-        return ResponseEntity.ok().body(cardService.update(card));
+    @PutMapping("/users")
+    private ResponseEntity<User> findOne(@RequestBody User user) {
+        return ResponseEntity.ok().body(userService.update(user));
     }
 
-    @DeleteMapping("/cards/{id}")
+    @DeleteMapping("/users/{id}")
     private ResponseEntity<Long> delete(@PathVariable Long id) {
-        return ResponseEntity.ok().body(cardService.delete(id));
+        return ResponseEntity.ok().body(userService.delete(id));
     }
 
 }
