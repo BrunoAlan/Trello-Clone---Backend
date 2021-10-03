@@ -15,7 +15,6 @@ public class CardRepository {
         List<Card> cards = new ArrayList<Card>();
         cards.add(new Card(1L, "Tarjeta 1", "Descripción tarjeta 1", LocalDate.now()));
         cards.add(new Card(2L, "Tarjeta 2", "Descripción tarjeta 2", LocalDate.now()));
-        cards.add(new Card(2L, "Tarjeta 2", "Descripción tarjeta 2", LocalDate.now()));
         cards.add(new Card(3L, "Tarjeta 3", "Descripción tarjeta 3", LocalDate.now()));
         cards.add(new Card(4L, "Tarjeta 4", "Descripción tarjeta 4", LocalDate.now()));
         return cards;
