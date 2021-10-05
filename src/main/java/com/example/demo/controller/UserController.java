@@ -5,6 +5,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,7 +32,7 @@ public class UserController {
 
     @PostMapping("/users")
     private ResponseEntity<User> addCard(@RequestBody User user) {
-        return ResponseEntity.ok().body(userService.save(user));
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
     @GetMapping("/users/{id}")
